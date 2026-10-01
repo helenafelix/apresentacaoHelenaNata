@@ -1,0 +1,63 @@
+<div class="form-card">
+  <div class="mb-5">
+    <p class="heading">FORMULÁRIO</p>
+    <h1 class="title">Cadastrar ficha técnica · {{filme.nome}}</h1>
+    <p class="subtitle is-6">Preencha os dados para atualizar o catálogo.</p>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <form action="/filmes/{{filme.id}}/ficha-tecnica" method="POST">
+        <div class="field">
+          <label class="label" for="duracaoMinutos">Duração (minutos)</label>
+          <div class="control">
+            <input
+              class="input"
+              id="duracaoMinutos"
+              type="number"
+              name="duracaoMinutos"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="orcamento">Orçamento</label>
+          <div class="control">
+            <input
+              class="input"
+              id="orcamento"
+              type="number"
+              name="orcamento"
+              step="0.01"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="bilheteria">Bilheteria</label>
+          <div class="control">
+            <input
+              class="input"
+              id="bilheteria"
+              type="number"
+              name="bilheteria"
+              step="0.01"
+              required
+            />
+          </div>
+        </div>
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input
+              class="action-link action-primary"
+              type="submit"
+              value="Salvar cadastro"
+            />
+          </div>
+          <div class="control">
+            <a class="action-link action-light" href="/">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

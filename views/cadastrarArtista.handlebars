@@ -1,0 +1,55 @@
+<div class="form-card">
+  <div class="mb-5">
+    <p class="heading">FORMULÁRIO</p>
+    <h1 class="title">Cadastrar artista</h1>
+    <p class="subtitle is-6">Preencha os dados para atualizar o catálogo.</p>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <form action="/artistas" method="POST">
+        <div class="field">
+          <label class="label" for="nome">Nome</label>
+          <div class="control">
+            <input class="input" id="nome" type="text" name="nome" required />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="anoNascimento">Ano de nascimento</label>
+          <div class="control">
+            <input
+              class="input"
+              id="anoNascimento"
+              type="number"
+              name="anoNascimento"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="nomeArtistico">Nome artístico</label>
+          <div class="control">
+            <input
+              class="input"
+              id="nomeArtistico"
+              type="text"
+              name="nomeArtistico"
+              required
+            />
+          </div>
+        </div>
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input
+              class="action-link action-primary"
+              type="submit"
+              value="Salvar cadastro"
+            />
+          </div>
+          <div class="control">
+            <a class="action-link action-light" href="/">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

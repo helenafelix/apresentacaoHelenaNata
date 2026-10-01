@@ -1,0 +1,16 @@
+body { background: #f5f5f5; } /* cor de fundo da página */
+.logo { font-size: 1.3rem; font-weight: bold; } /* nomezinho cinema no rodapé */
+.footer { padding: 2rem 1rem; background: #f5f5f5; color: #777; } /* ajeita o rodapé */
+.home-card { height: 100%; } /* deixa os cardzinhos de artistas, filmes e diretores alinahdos */
+.form-card { max-width: 700px; margin: auto; } /* não deixa os formulários muito largos, mas só aparece em cadastro e edição */
+.table-container { background: white; } /* coloca fundo branco onde ficam as tabelas */
+.action-link { display: inline-block; padding: .55rem .8rem; border-radius: 4px; border: 0; font-weight: bold; text-decoration: none; cursor: pointer; } /* cria um estilo básico  pra links q são usados como cadastrar, editar, cancelar, excluir. */
+
+.action-primary { background: #485fc7; color: white; } /* criar ação azul, usada na parte de cadastrar ou salvar */
+.action-primary-light, .action-link-light { background: #eef0ff; color: #3850a0; } /* criar uma ação azul clara */
+.action-light { background: #eeeeee; color: #333; } /* criar uma ação cinza, usada na parte de cancelar ou voltar */
+.action-danger { background: #f14668; color: white; } /* criar uma ação vermelha, usada na parte de excluir */
+
+.action-link:hover { opacity: .85; } /* quando o mouse passa por cima do link, ele fica um pouco transparente */
+
+.modal-card { max-width: 500px; } /* limita o tamanho interno do modal */

@@ -1,0 +1,70 @@
+<div class="section-heading">
+  <div>
+    <p class="heading">ELENCO</p>
+    <h1 class="title">Artistas</h1>
+    <p class="subtitle is-6">Pessoas relacionadas às obras</p>
+  </div>
+  <a class="action-link action-primary" href="/artistas/cadastrar"
+    >+ Cadastrar artista</a
+  >
+</div>
+{{#if artistas.length}}
+<div class="table-container">
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Nome artístico</th>
+        <th>Nascimento</th>
+        <th class="has-text-right">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each artistas}}
+      <tr>
+        <td>
+          <a class="has-text-weight-semibold" href="/artistas/{{this.id}}"
+            >{{this.nome}}</a
+          >
+        </td>
+        <td>{{this.nomeArtistico}}</td>
+        <td>{{this.anoNascimento}}</td>
+        <td class="has-text-right">
+          <a class="mr-3" href="/artistas/{{this.id}}/editar">Editar</a
+          ><a class="has-text-danger" href="#modal-artista-{{this.id}}"
+            >Excluir</a
+          >
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+<div class="notification is-info is-light">
+  Nenhum artista cadastrado ainda.
+</div>
+{{/if}} {{#each artistas}}
+<div id="modal-artista-{{this.id}}" class="modal">
+  <a class="modal-background" href="#"></a>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Excluir artista</p>
+      <a class="delete" aria-label="fechar" href="#"></a>
+    </header>
+    <section class="modal-card-body">
+      Confirmar a exclusão de <strong>{{this.nome}}</strong>?
+    </section>
+    <footer class="modal-card-foot">
+      <form action="/artistas/{{this.id}}?_method=DELETE" method="POST">
+        <input
+          class="action-link action-danger"
+          type="submit"
+          value="Confirmar exclusão"
+        />
+      </form>
+      <a class="action-link action-light" href="#">Cancelar</a>
+    </footer>
+  </div>
+</div>
+{{/each}}

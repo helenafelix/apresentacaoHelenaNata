@@ -1,0 +1,63 @@
+<div class="form-card">
+  <div class="mb-5">
+    <p class="heading">EDIÇÃO</p>
+    <h1 class="title">Editar artista</h1>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <form action="/artistas/{{artista.id}}?_method=PUT" method="POST">
+        <div class="field">
+          <label class="label" for="nome">Nome</label>
+          <div class="control">
+            <input
+              class="input"
+              id="nome"
+              type="text"
+              name="nome"
+              value="{{artista.nome}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="anoNascimento">Ano de nascimento</label>
+          <div class="control">
+            <input
+              class="input"
+              id="anoNascimento"
+              type="number"
+              name="anoNascimento"
+              value="{{artista.anoNascimento}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="nomeArtistico">Nome artístico</label>
+          <div class="control">
+            <input
+              class="input"
+              id="nomeArtistico"
+              type="text"
+              name="nomeArtistico"
+              value="{{artista.nomeArtistico}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input
+              class="action-link action-primary"
+              type="submit"
+              value="Salvar alterações"
+            />
+          </div>
+          <div class="control">
+            <a class="action-link action-light" href="/">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

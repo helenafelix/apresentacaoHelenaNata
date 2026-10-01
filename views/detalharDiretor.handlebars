@@ -1,0 +1,47 @@
+<div class="section-heading">
+  <div>
+    <p class="heading">PERFIL</p>
+    <h1 class="title">{{diretor.nome}}</h1>
+  </div>
+  <a class="action-link action-light" href="/diretores">← Voltar</a>
+</div>
+<div class="columns">
+  <div class="column is-one-third">
+    <div class="card">
+      <div class="card-content">
+        <p class="heading">NOME COMPLETO</p>
+        <p class="detail-value">{{diretor.nome}}</p>
+        <hr />
+        <p class="heading">ANO DE NASCIMENTO</p>
+        <p class="detail-value">{{diretor.anoNascimento}}</p>
+        <hr />
+        <p class="heading">NACIONALIDADE</p>
+        <p class="detail-value">{{diretor.nacionalidade}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Filmes dirigidos</p>
+      </header>
+      <div class="card-content">
+        {{#if diretor.filmes}}
+        <div class="content">
+          <ul>
+            {{#each diretor.filmes }}
+            <li>
+              <a href="/filmes/{{this.id}}">{{this.nome}} ({{this.ano}})</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{else}}
+        <div class="notification is-info is-light">
+          Nenhum filme dirigido cadastrado.
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

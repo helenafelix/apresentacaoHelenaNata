@@ -1,0 +1,69 @@
+<div class="section-heading">
+  <div>
+    <p class="heading">CATÁLOGO</p>
+    <h1 class="title">Filmes</h1>
+    <p class="subtitle is-6">Obras cadastradas no CineBase</p>
+  </div>
+  <a class="action-link action-primary" href="/filmes/cadastrar"
+    >+ Cadastrar filme</a
+  >
+</div>
+{{#if filmes.length}}
+<div class="table-container">
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>Filme</th>
+        <th>Ano</th>
+        <th class="has-text-right">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each filmes}}
+      <tr>
+        <td>
+          <a class="has-text-weight-semibold" href="/filmes/{{this.id}}"
+            >{{this.nome}}</a
+          >
+        </td>
+        <td><span class="tag is-info is-light">{{this.ano}}</span></td>
+        <td class="has-text-right">
+          <a class="mr-3" href="/filmes/{{this.id}}/editar">Editar</a
+          ><a class="has-text-danger" href="#modal-filme-{{this.id}}"
+            >Excluir</a
+          >
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+<div class="notification is-info is-light">
+  Nenhum filme cadastrado ainda. Use o link acima para adicionar o primeiro.
+</div>
+{{/if}} {{#each filmes}}
+<div id="modal-filme-{{this.id}}" class="modal">
+  <a class="modal-background" href="#"></a>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Excluir filme</p>
+      <a class="delete" aria-label="fechar" href="#"></a>
+    </header>
+    <section class="modal-card-body">
+      Tem certeza que deseja excluir <strong>{{this.nome}}</strong>? Essa ação
+      remove o registro do catálogo.
+    </section>
+    <footer class="modal-card-foot">
+      <form action="/filmes/{{this.id}}?_method=DELETE" method="POST">
+        <input
+          class="action-link action-danger"
+          type="submit"
+          value="Confirmar exclusão"
+        />
+      </form>
+      <a class="action-link action-light" href="#">Cancelar</a>
+    </footer>
+  </div>
+</div>
+{{/each}}

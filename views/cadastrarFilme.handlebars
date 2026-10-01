@@ -1,0 +1,64 @@
+<div class="form-card">
+  <div class="mb-5">
+    <p class="heading">FORMULÁRIO</p>
+    <h1 class="title">Cadastrar filme</h1>
+    <p class="subtitle is-6">Adicione uma obra e relacione sua equipe.</p>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <form action="/filmes" method="POST">
+        <div class="field">
+          <label class="label" for="nome">Nome do filme</label>
+          <div class="control">
+            <input class="input" id="nome" type="text" name="nome" required />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ano">Ano</label>
+          <div class="control">
+            <input class="input" id="ano" type="number" name="ano" required />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="diretorId">Diretor</label>
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select id="diretorId" name="diretorId" required>
+                {{#each diretores }}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="artistas">Artistas</label>
+          <div class="control">
+            <div class="select is-multiple is-fullwidth">
+              <select id="artistas" name="artistas" multiple size="5">
+                {{#each artistas}}
+                <option value="{{this.id}}">{{this.nome}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+          <p class="help">
+            Use Ctrl (Windows) ou Command (Mac) para selecionar vários artistas.
+          </p>
+        </div>
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input
+              class="action-link action-primary"
+              type="submit"
+              value="Salvar filme"
+            />
+          </div>
+          <div class="control">
+            <a class="action-link action-light" href="/filmes">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

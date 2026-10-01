@@ -1,0 +1,72 @@
+<div class="section-heading">
+  <div>
+    <p class="heading">DETALHES DO FILME</p>
+    <h1 class="title">
+      {{filme.nome}} <span class="tag is-info is-light">{{filme.ano}}</span>
+    </h1>
+  </div>
+  <a class="action-link action-light" href="/filmes">← Voltar</a>
+</div>
+<div class="columns is-multiline">
+  <div class="column is-half">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Informações principais</p>
+      </header>
+      <div class="card-content">
+        <p class="heading">DIRETOR</p>
+        {{#if filme.diretor}}
+        <p class="detail-value">
+          <a href="/diretores/{{filme.diretor.id}}">{{filme.diretor.nome}}</a>
+        </p>
+        {{else}}
+        <p>Não informado.</p>
+        {{/if}}
+        <hr />
+        <p class="heading">ELENCO</p>
+        <div class="tags">
+          {{#each filme.artistas }}<a
+            class="tag is-primary is-light"
+            href="/artistas/{{this.id}}"
+            >{{this.nome}}</a
+          >{{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column is-half">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Ficha técnica</p>
+      </header>
+      <div class="card-content">
+        {{#if filme.fichaTecnica }}
+        <div class="columns is-mobile">
+          <div class="column">
+            <p class="heading">DURAÇÃO</p>
+            <p class="detail-value">
+              {{filme.fichaTecnica.duracaoMinutos}} min
+            </p>
+          </div>
+          <div class="column">
+            <p class="heading">ORÇAMENTO</p>
+            <p class="detail-value">R$ {{filme.fichaTecnica.orcamento}}</p>
+          </div>
+          <div class="column">
+            <p class="heading">BILHETERIA</p>
+            <p class="detail-value">R$ {{filme.fichaTecnica.bilheteria}}</p>
+          </div>
+        </div>
+        {{else}}
+        <div class="notification is-warning is-light">
+          Este filme ainda não tem ficha técnica.
+        </div>
+        <a
+          class="action-link action-link-light"
+          href="/filmes/{{filme.id}}/ficha-tecnica/cadastrar"
+          >Cadastrar ficha técnica</a
+        >{{/if}}
+      </div>
+    </div>
+  </div>
+</div>

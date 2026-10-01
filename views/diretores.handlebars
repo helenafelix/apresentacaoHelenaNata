@@ -1,0 +1,72 @@
+<div class="section-heading">
+  <div>
+    <p class="heading">EQUIPE</p>
+    <h1 class="title">Diretores</h1>
+    <p class="subtitle is-6">Diretores presentes no catálogo</p>
+  </div>
+  <a class="action-link action-primary" href="/diretores/cadastrar"
+    >+ Cadastrar diretor</a
+  >
+</div>
+{{#if diretores.length}}
+<div class="table-container">
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Nacionalidade</th>
+        <th>Nascimento</th>
+        <th class="has-text-right">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each diretores}}
+      <tr>
+        <td>
+          <a class="has-text-weight-semibold" href="/diretores/{{this.id}}"
+            >{{this.nome}}</a
+          >
+        </td>
+        <td>
+          <span class="tag is-link is-light">{{this.nacionalidade}}</span>
+        </td>
+        <td>{{this.anoNascimento}}</td>
+        <td class="has-text-right">
+          <a class="mr-3" href="/diretores/{{this.id}}/editar">Editar</a
+          ><a class="has-text-danger" href="#modal-diretor-{{this.id}}"
+            >Excluir</a
+          >
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+<div class="notification is-info is-light">
+  Nenhum diretor cadastrado ainda.
+</div>
+{{/if}} {{#each diretores}}
+<div id="modal-diretor-{{this.id}}" class="modal">
+  <a class="modal-background" href="#"></a>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Excluir diretor</p>
+      <a class="delete" aria-label="fechar" href="#"></a>
+    </header>
+    <section class="modal-card-body">
+      Confirmar a exclusão de <strong>{{this.nome}}</strong>?
+    </section>
+    <footer class="modal-card-foot">
+      <form action="/diretores/{{this.id}}?_method=DELETE" method="POST">
+        <input
+          class="action-link action-danger"
+          type="submit"
+          value="Confirmar exclusão"
+        />
+      </form>
+      <a class="action-link action-light" href="#">Cancelar</a>
+    </footer>
+  </div>
+</div>
+{{/each}}

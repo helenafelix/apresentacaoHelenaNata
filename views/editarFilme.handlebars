@@ -1,0 +1,50 @@
+<div class="form-card">
+  <div class="mb-5">
+    <p class="heading">EDIÇÃO</p>
+    <h1 class="title">Editar filme</h1>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <form action="/filmes/{{filme.id}}?_method=PUT" method="POST">
+        <div class="field">
+          <label class="label" for="nome">Nome do filme</label>
+          <div class="control">
+            <input
+              class="input"
+              id="nome"
+              type="text"
+              name="nome"
+              value="{{filme.nome}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ano">Ano</label>
+          <div class="control">
+            <input
+              class="input"
+              id="ano"
+              type="number"
+              name="ano"
+              value="{{filme.ano}}"
+              required
+            />
+          </div>
+        </div>
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input
+              class="action-link action-primary"
+              type="submit"
+              value="Salvar alterações"
+            />
+          </div>
+          <div class="control">
+            <a class="action-link action-light" href="/">Cancelar</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
